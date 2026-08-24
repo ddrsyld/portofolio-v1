@@ -78,19 +78,21 @@ export default function About() {
                   whileHover={{ y: -3 }}
                   className="p-5 rounded-xl bg-gpt-lightSurface dark:bg-gpt-darkSurface border border-gpt-lightBorder dark:border-gpt-darkBorder hover:border-black dark:hover:border-white transition-all shadow-sm"
                 >
-                  <div className="flex flex-wrap items-start justify-between gap-2 mb-2">
-                    <div>
-                      <h4 className="font-semibold text-base text-gpt-lightTextHeading dark:text-gpt-darkTextHeading">
+                  <div className="flex items-start justify-between gap-3 sm:gap-4 mb-2.5">
+                    <div className="flex-1 min-w-0">
+                      <h4 className="font-bold text-base text-gpt-lightTextHeading dark:text-gpt-darkTextHeading leading-snug">
                         {edu.institution}
                       </h4>
-                      <p className="text-sm text-gpt-lightText dark:text-gpt-darkText font-medium">{edu.degree}</p>
+                      <p className="text-sm text-gpt-lightText dark:text-gpt-darkText font-medium mt-0.5">
+                        {edu.degree}
+                      </p>
                     </div>
-                    <div className="text-right flex flex-col items-start sm:items-end gap-1">
-                      <span className="inline-block px-2.5 py-0.5 rounded-md text-xs font-mono font-medium bg-black/5 dark:bg-white/10 text-black dark:text-white border border-gpt-lightBorder dark:border-gpt-darkBorder">
+                    <div className="shrink-0 text-right flex flex-col items-end gap-1 pt-0.5">
+                      <span className="inline-block px-2.5 py-0.5 rounded-md text-xs font-mono font-medium bg-black/5 dark:bg-white/10 text-black dark:text-white border border-gpt-lightBorder dark:border-gpt-darkBorder whitespace-nowrap">
                         {edu.period}
                       </span>
                       {edu.score && (
-                        <span className="text-[11px] font-mono text-gpt-lightMuted dark:text-gpt-darkMuted">
+                        <span className="text-[11px] font-mono text-gpt-lightMuted dark:text-gpt-darkMuted whitespace-nowrap">
                           {edu.score}
                         </span>
                       )}
