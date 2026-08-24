@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Minimalist ChatGPT Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D1D5DB;
+  border-radius: 9999px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #333333;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #9CA3AF;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #555555;
+}
+
+/* Monochrome Tech Badge Utility */
+.gpt-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 9999px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  line-height: 1rem;
+  background-color: #F4F4F4;
+  color: #333333;
+  border: 1px solid #E5E5E5;
+  transition: all 0.15s ease;
+}
+
+.dark .gpt-badge {
+  background-color: #1A1A1A;
+  color: #A3A3A3;
+  border-color: #2E2E2E;
+}
+
+.gpt-badge:hover {
+  border-color: #000000;
+  color: #000000;
+}
+
+.dark .gpt-badge:hover {
+  border-color: #FFFFFF;
+  color: #FFFFFF;
+}

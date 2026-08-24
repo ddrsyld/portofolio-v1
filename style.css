@@ -1,0 +1,102 @@
+/* ==========================================================================
+   CLAUDE-INSPIRED PORTFOLIO STYLES
+   Aesthetic: Warm oat / sand tones, editorial serif headers, subtle tactile borders
+   ========================================================================== */
+
+:root {
+  --sand-bg: #FBF9F5;
+  --oat-surface: #F3EFE6;
+  --clay-accent: #D96B43;
+  --clay-hover: #C45731;
+  --border-light: #E8E2D6;
+  --text-primary: #262320;
+  --text-muted: #716B64;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(232, 226, 214, 0.4);
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: rgba(30, 28, 26, 0.4);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D5CEBF;
+  border-radius: 4px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #3E3B37;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #D96B43;
+}
+
+/* Skill Tags / Badges in Claude Style */
+.skill-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.65rem;
+  border-radius: 9999px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 11px;
+  line-height: 1rem;
+  background-color: rgba(243, 239, 230, 0.8);
+  color: #554F48;
+  border: 1px solid #E8E2D6;
+  transition: all 0.2s ease;
+}
+
+.dark .skill-tag {
+  background-color: rgba(46, 44, 41, 0.6);
+  color: #C2BBB1;
+  border-color: #383531;
+}
+
+.skill-tag:hover {
+  border-color: #D96B43;
+  color: #D96B43;
+  transform: translateY(-1px);
+}
+
+/* Subtle Card Glow / Elevation */
+.card-claude {
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.card-claude:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.04), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+}
+
+.dark .card-claude:hover {
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.2);
+}
+
+/* Custom animation for badges */
+@keyframes pulseSubtle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+.pulse-subtle {
+  animation: pulseSubtle 3s infinite ease-in-out;
+}
