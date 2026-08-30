@@ -9,7 +9,9 @@ export default {
     extend: {
       fontFamily: {
         sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
-        mono: ['"JetBrains Mono"', 'monospace'],
+        display: ['"Archivo Black"', 'sans-serif'],
+        condensed: ['"Barlow Condensed"', 'sans-serif'],
+        mono: ['"DM Mono"', '"JetBrains Mono"', 'monospace'],
       },
       colors: {
         gpt: {

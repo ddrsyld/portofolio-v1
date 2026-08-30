@@ -9,6 +9,8 @@ export const personalInfo = {
   email: "risyaldi06@gmail.com",
   linkedin: "https://www.linkedin.com/in/dedy-risyaldi-981543262",
   linkedinDisplay: "dedy-risyaldi",
+  github: "https://github.com/ddrsyld",
+  githubDisplay: "ddrsyld",
   resumePdf: "/Dedy Risyaldi-resume.pdf",
   bioShort: "Software Developer dengan fokus pada pengembangan web full-stack, penerapan AI/Machine Learning, dan aplikasi desktop. Berpengalaman membangun backend yang handal, integrasi AI praktis, dan solusi software terstruktur.",
   philosophy: "Fokus membangun sistem yang efisien, mudah dikembangkan, dan memberikan solusi nyata. Saya selalu antusias mendalami alur logika di balik teknologi dan mengeksplorasi inovasi baru di software engineering dan AI.",
@@ -43,7 +45,7 @@ export const personalInfo = {
 export const educations = [
   {
     institution: "Politeknik Elektronika Negeri Surabaya (PENS)",
-    degree: "D4 Teknik Informatika (Game Technology)",
+    degree: "Game Technology (Game Technology)",
     period: "2025 – 2029 (Expected)",
     score: "IPK 3.65 / 4.00",
     description: "Mempelajari fondasi ilmu komputer, algoritma, rekayasa perangkat lunak, pemrograman interaktif, dan pengembangan sistem kolaboratif.",

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, useScroll, useSpring, AnimatePresence } from 'framer-motion';
-import { Sun, Moon, Menu, X } from 'lucide-react';
-import { LinkedInIcon } from './Icons';
+import { Sun, Moon, Menu, X, ArrowUpRight } from 'lucide-react';
+import { LinkedInIcon, GithubIcon } from './Icons';
 import { personalInfo } from '../data/portfolioData';
 
 export default function Navbar({ isDark, toggleTheme }) {
@@ -14,165 +14,156 @@ export default function Navbar({ isDark, toggleTheme }) {
   });
 
   const navLinks = [
-    { label: 'About', href: '#about' },
-    { label: 'Experience', href: '#experience' },
-    { label: 'Skills', href: '#skills' },
-    { label: 'Achievements', href: '#achievements' },
-    { label: 'Certificates', href: '#certifications' },
-    { label: 'Contact', href: '#contact' },
+    { num: '01', label: 'About', href: '#about' },
+    { num: '02', label: 'Experience', href: '#experience' },
+    { num: '03', label: 'Capabilities', href: '#skills' },
+    { num: '04', label: 'Honors', href: '#achievements' },
+    { num: '05', label: 'Certs', href: '#certifications' },
+    { num: '06', label: 'Contact', href: '#contact' },
   ];
 
   return (
     <>
-      {/* Scroll Progress Bar at the very top */}
+      {/* Scroll Progress Bar */}
       <motion.div
         className="fixed top-0 left-0 right-0 h-[2px] bg-black dark:bg-white z-50 origin-left"
         style={{ scaleX }}
       />
 
-      {/* Top Status Bar */}
-      <motion.div
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4 }}
-        className="border-b border-gpt-lightBorder dark:border-gpt-darkBorder bg-gpt-lightSurface/80 dark:bg-gpt-darkSurface/80 backdrop-blur-sm text-xs py-1.5 px-4"
-      >
-        <div className="max-w-6xl mx-auto flex items-center justify-between gap-4">
-          <div className="flex items-center gap-2">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-            </span>
-            <span className="text-gpt-lightMuted dark:text-gpt-darkMuted text-xs font-mono">
-              Open for Software Development & AI/ML Projects
-            </span>
-          </div>
-          <div className="hidden sm:flex items-center gap-4 text-gpt-lightMuted dark:text-gpt-darkMuted font-mono text-[11px]">
-            <span>Surabaya / Probolinggo, ID</span>
-            <span>•</span>
-            <span>PENS Surabaya</span>
-          </div>
-        </div>
-      </motion.div>
 
-      {/* Main Sticky Navbar */}
-      <header className="sticky top-0 z-40 bg-gpt-lightBg/90 dark:bg-gpt-darkBg/90 backdrop-blur-md border-b border-gpt-lightBorder dark:border-gpt-darkBorder transition-colors">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      {/* Main Sticky Navbar (Caksa Architectural Style) */}
+      <header className="sticky top-0 z-40 bg-gpt-lightBg/95 dark:bg-gpt-darkBg/95 backdrop-blur-md border-b border-gpt-lightBorder dark:border-gpt-darkBorder transition-colors">
+        <div className="max-w-7xl mx-auto px-4 sm:px-8 h-18 py-3.5 flex items-center justify-between">
           
-          {/* Brand with Profile Picture linking to LinkedIn */}
-          <div className="flex items-center gap-3">
-            {/* Clickable Profile Picture -> Direct to LinkedIn with Spring Hover */}
-            <motion.a
-              href={personalInfo.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.08 }}
-              whileTap={{ scale: 0.94 }}
-              className="w-9 h-9 rounded-full p-0.5 border border-gpt-lightBorder dark:border-gpt-darkBorder hover:border-black dark:hover:border-white shadow-sm transition-colors block relative group"
-              title="Click to visit LinkedIn profile"
-            >
+          {/* Brand Dossier Link */}
+          <a href="#hero" className="flex items-center gap-3.5 group">
+            <div className="relative w-10 h-10 rounded-sm border border-black/20 dark:border-white/20 p-0.5 group-hover:border-black dark:group-hover:border-white transition-colors">
               <img
                 src={personalInfo.avatar}
                 alt={personalInfo.name}
-                className="w-full h-full object-cover rounded-full"
+                className="w-full h-full object-cover grayscale contrast-125 group-hover:grayscale-0 transition-all duration-300"
                 onError={(e) => {
                   e.currentTarget.src = 'https://ui-avatars.com/api/?name=Dedy+Risyaldi&background=171717&color=fff';
                 }}
               />
-              <span className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-emerald-500 border-2 border-white dark:border-gpt-darkBg rounded-full" title="Online / Open to Work"></span>
-            </motion.a>
+              <span className="absolute -top-1 -right-1 w-2 h-2 bg-black dark:bg-white rounded-none"></span>
+            </div>
 
-            {/* Name & Role Text */}
-            <a href="#hero" className="group">
-              <span className="font-bold text-sm sm:text-base tracking-tight block leading-tight text-gpt-lightTextHeading dark:text-gpt-darkTextHeading group-hover:underline">
+            <div>
+              <div className="font-condensed font-bold text-lg sm:text-xl tracking-wider uppercase leading-none text-gpt-lightTextHeading dark:text-gpt-darkTextHeading group-hover:opacity-80 transition-opacity">
                 {personalInfo.name}
-              </span>
-              <span className="text-[10px] sm:text-[11px] text-gpt-lightMuted dark:text-gpt-darkMuted font-mono uppercase tracking-wider block">
-                Software & AI Engineer
-              </span>
-            </a>
-          </div>
+              </div>
+              <div className="text-[10px] font-mono-tech uppercase tracking-widest text-gpt-lightMuted dark:text-gpt-darkMuted mt-0.5">
+                COMPUTER SCIENCE · PENS SURABAYA
+              </div>
+            </div>
+          </a>
 
           {/* Desktop Nav Items */}
-          <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-gpt-lightMuted dark:text-gpt-darkMuted">
+          <nav className="hidden lg:flex items-center gap-7">
             {navLinks.map((link) => (
-              <motion.a
+              <a
                 key={link.label}
                 href={link.href}
-                whileHover={{ y: -1 }}
-                className="hover:text-black dark:hover:text-white transition-colors"
+                className="font-condensed font-bold text-xs uppercase tracking-[0.14em] text-gpt-lightMuted dark:text-gpt-darkMuted hover:text-black dark:hover:text-white transition-colors flex items-center gap-1.5 group py-1"
               >
-                {link.label}
-              </motion.a>
+                <span className="text-[10px] font-mono-tech opacity-40 group-hover:opacity-100 transition-opacity">
+                  {link.num}
+                </span>
+                <span>{link.label}</span>
+              </a>
             ))}
           </nav>
 
-          {/* Actions */}
-          <div className="flex items-center gap-2.5">
-            {/* Theme Toggle */}
-            <motion.button
+          {/* Action CTAs */}
+          <div className="flex items-center gap-3">
+            {/* Dark / Light Toggle */}
+            <button
               onClick={toggleTheme}
-              whileTap={{ scale: 0.9, rotate: 15 }}
               aria-label="Toggle Theme"
-              className="w-9 h-9 rounded-lg border border-gpt-lightBorder dark:border-gpt-darkBorder bg-gpt-lightSurface dark:bg-gpt-darkSurface flex items-center justify-center text-gpt-lightMuted dark:text-gpt-darkMuted hover:text-black dark:hover:text-white hover:border-black dark:hover:border-white transition-all shadow-sm"
+              className="w-9 h-9 border border-gpt-lightBorder dark:border-gpt-darkBorder bg-gpt-lightSurface dark:bg-gpt-darkSurface flex items-center justify-center text-gpt-lightMuted dark:text-gpt-darkMuted hover:text-black dark:hover:text-white hover:border-black dark:hover:border-white transition-all shadow-sm"
             >
               {isDark ? <Sun className="w-4 h-4 text-white" /> : <Moon className="w-4 h-4 text-black" />}
-            </motion.button>
+            </button>
 
-            {/* LinkedIn Button */}
-            <motion.a
+            {/* Outline CTA (Caksa style) */}
+            <a
+              href={personalInfo.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden sm:inline-flex items-center gap-1.5 px-3 py-2 text-xs font-condensed font-bold uppercase tracking-wider border border-gpt-lightBorder dark:border-gpt-darkBorder bg-gpt-lightSurface dark:bg-gpt-darkSurface text-black dark:text-white hover:border-black dark:hover:border-white transition-colors"
+              title="GitHub Profile"
+            >
+              <GithubIcon className="w-3.5 h-3.5" />
+              <span>GITHUB</span>
+              <ArrowUpRight className="w-3 h-3" />
+            </a>
+
+            <a
               href={personalInfo.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.97 }}
-              className="hidden sm:inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-black text-white dark:bg-white dark:text-black hover:opacity-85 shadow-sm transition-all"
+              className="hidden sm:inline-flex items-center gap-1.5 px-3 py-2 text-xs font-condensed font-bold uppercase tracking-wider border border-black/80 dark:border-white/80 text-black dark:text-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors"
+              title="LinkedIn Profile"
             >
               <LinkedInIcon className="w-3.5 h-3.5" />
-              <span>LinkedIn</span>
-            </motion.a>
+              <span>LINKEDIN</span>
+              <ArrowUpRight className="w-3 h-3" />
+            </a>
 
             {/* Mobile Menu Button */}
-            <motion.button
+            <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              whileTap={{ scale: 0.9 }}
               aria-label="Toggle Navigation Menu"
-              className="md:hidden w-9 h-9 rounded-lg border border-gpt-lightBorder dark:border-gpt-darkBorder flex items-center justify-center text-gpt-lightText dark:text-gpt-darkText"
+              className="lg:hidden w-9 h-9 border border-gpt-lightBorder dark:border-gpt-darkBorder flex items-center justify-center text-gpt-lightText dark:text-gpt-darkText"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-            </motion.button>
+            </button>
           </div>
         </div>
 
-        {/* Mobile Dropdown Animation */}
+        {/* Mobile Dropdown */}
         <AnimatePresence>
           {mobileMenuOpen && (
             <motion.div
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.25 }}
-              className="md:hidden border-b border-gpt-lightBorder dark:border-gpt-darkBorder bg-gpt-lightSurface dark:bg-gpt-darkSurface px-6 py-4 space-y-3 text-sm overflow-hidden"
+              transition={{ duration: 0.2 }}
+              className="lg:hidden border-b border-gpt-lightBorder dark:border-gpt-darkBorder bg-gpt-lightBg dark:bg-gpt-darkBg px-6 py-5 space-y-3 overflow-hidden"
             >
+              <div className="text-[10px] font-mono-tech uppercase tracking-widest text-gpt-lightMuted dark:text-gpt-darkMuted mb-2">
+                INDEX NAVIGATION
+              </div>
               {navLinks.map((link) => (
                 <a
                   key={link.label}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="block py-1.5 text-gpt-lightMuted dark:text-gpt-darkMuted hover:text-black dark:hover:text-white"
+                  className="flex items-center justify-between py-2 border-b border-gpt-lightBorder/50 dark:border-gpt-darkBorder/50 font-condensed font-bold text-sm tracking-wider uppercase text-gpt-lightText dark:text-gpt-darkText hover:text-black dark:hover:text-white"
                 >
-                  {link.label}
+                  <span>{link.label}</span>
+                  <span className="font-mono-tech text-xs opacity-50">{link.num}</span>
                 </a>
               ))}
-              <div className="pt-2 border-t border-gpt-lightBorder dark:border-gpt-darkBorder">
+              <div className="pt-3 grid grid-cols-2 gap-2">
+                <a
+                  href={personalInfo.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-1.5 py-2.5 text-xs font-condensed font-bold uppercase tracking-widest border border-gpt-lightBorder dark:border-gpt-darkBorder bg-gpt-lightSurface dark:bg-gpt-darkSurface text-black dark:text-white"
+                >
+                  <GithubIcon className="w-4 h-4" />
+                  <span>GITHUB ↗</span>
+                </a>
                 <a
                   href={personalInfo.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 w-full py-2 rounded-lg text-xs font-semibold bg-black text-white dark:bg-white dark:text-black"
+                  className="flex items-center justify-center gap-1.5 py-2.5 text-xs font-condensed font-bold uppercase tracking-widest border border-black dark:border-white bg-black text-white dark:bg-white dark:text-black"
                 >
                   <LinkedInIcon className="w-4 h-4" />
-                  <span>Pergi ke LinkedIn</span>
+                  <span>LINKEDIN ↗</span>
                 </a>
               </div>
             </motion.div>
